@@ -1,0 +1,34 @@
+<apex:page showHeader="false"
+           sidebar="false"
+           standardStylesheets="false"
+           language="en"
+           applyBodyTag="false"
+           applyHtmlTag="false"
+           docType="html">
+<html>
+    <header>
+        <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.AppCss)}" />
+    </header>
+    <body ng-app="main">
+        <div ui-view="header"></div>
+        <div ui-view="mainSection"></div>
+        <div ui-view="footer"></div>
+    </body>
+
+    <script type="text/javascript" src="{!URLFOR($Resource.VendorJs, '/angular/angular.js')}" />
+    <script type="text/javascript" src="{!URLFOR($Resource.VendorJs, '/angular-ui-router/release/angular-ui-router.js')}" />
+
+    <apex:remoteObjects jsNamespace="Demo">
+        <apex:remoteObjectModel name="Account"
+                                jsShorthand="account"
+                                fields="Id, Name, LastModifiedDate"/>
+        <apex:remoteObjectModel name="Contact"
+                                jsShorthand="contact"
+                                fields="Id, AccountId, Name"/>
+    </apex:remoteObjects>
+
+    <c:ngRemote remoteObjectNamespace="Demo" remoteObjects="account, contact" />
+
+    <script type="text/javascript" src="{!URLFOR($Resource.AppJs)}" />
+</html>
+</apex:page>

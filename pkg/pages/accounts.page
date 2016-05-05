@@ -1,0 +1,18 @@
+<apex:page showHeader="false"
+           sidebar="false"
+           standardStylesheets="false"
+           language="en"
+           applyBodyTag="false"
+           applyHtmlTag="false"
+           docType="html">
+<html>
+    <p>Accounts:</p>
+    <ul>
+        <li ng-repeat="account in vm.accounts">
+            <a ui-sref="root.accounts.contacts({accountId: account.Id})">{{account.Name}}</a>
+        </li>
+    </ul>
+
+    <div ui-view="contacts"></div>
+</html>
+</apex:page>

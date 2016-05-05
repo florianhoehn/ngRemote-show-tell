@@ -1,0 +1,38 @@
+{
+  "name": "PartnerLinkSite",
+  "description": "",
+  "main": "",
+  "authors": [
+    "mauro.franchi <mauro.franchi@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-bootstrap": "~0.14.3",
+    "angular-smart-table": "~2.1.5",
+    "angular-ui-router": "~0.2.15",
+    "underscore": "~1.8.3",
+    "angular-ui-utils": "~3.0.0",
+    "angular-spinner": "~0.8.0",
+    "spin": "~1.1.6",
+    "bootstrap": "~3.3.6",
+    "angular-resource": "~1.4.8",
+    "bootstrap-formhelpers": "~2.3.0",
+    "ui.bootstrap": "~0.14.3",
+    "angular-country-select": "~1.0.0",
+    "angular-google-chart": "~0.1.0"
+  },
+  "resolutions": {
+    "angular": "1.4.10",
+    "bootstrap": "~3.3.6"
+  }
+}

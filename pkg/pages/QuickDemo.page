@@ -1,0 +1,75 @@
+<apex:page readOnly="true">
+    <!-- HTML FOR APP -->
+    <div ng-app="ngApp">
+    <div ng-controller="demoController">
+      <p>Accounts:</p>
+      <ul>
+        <li ng-repeat="account in accounts">
+          <a href="#" ng-click="getContacts(account.Id)">{{account.Name}}</a>
+        </li>
+      </ul>
+
+      <p>Contacts for selectected account:</p>
+      <ul>
+        <li ng-repeat="contact in selectedAccount.contacts">
+          <p>{{contact.Name}}</p>
+        </li>
+      </ul>
+    </div>
+    </div>
+
+    <!-- DEFINITION REMOTEOBJECTS -->
+    <apex:remoteObjects jsNamespace="TestNamespace">
+    <apex:remoteObjectModel name="Account"
+                            fields="Id, Name, LastModifiedDate"/>
+    <apex:remoteObjectModel name="Contact"
+                            fields="Id, AccountId, Name"/>
+    </apex:remoteObjects>
+
+    <!-- INCLUDE ANGULARJS -->
+    <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js">
+    </script>
+
+    <!-- NGREMOTEOBJECTS -->
+    <c:ngRemote remoteObjectNamespace="TestNamespace"
+              remoteObjects="Account, Contact" />
+
+    <!-- ACTUAL ANGULARJS APP -->
+    <script type="text/javascript">
+        var ngApp = angular.module('ngApp', ['ngRemote']);
+
+        ngApp.controller('demoController',
+                         ['$scope',
+                         'AccountService',
+                         'ContactService',
+                         function($scope,
+                                  AccountService,
+                                  ContactService) {
+          AccountService.retrieveRecentItems(5).then(function(result) {
+            if(result) {
+              $scope.accounts = result;
+            }
+          }, function(error) {
+            console.log(error);
+          });
+
+          $scope.getContacts = function(accountId) {
+            ContactService.retrieveByParentId('AccountId',
+                                              accountId,
+                                              5).then(function(result) {
+              if(result) {
+                angular.forEach($scope.accounts, function(account) {
+                  if(account.Id === accountId) {
+                    account.contacts = result;
+                    $scope.selectedAccount = account;
+                  }
+                });
+              }
+            }, function(error) {
+              console.log(error);
+            });
+          }
+        }]);
+    </script>
+</apex:page>

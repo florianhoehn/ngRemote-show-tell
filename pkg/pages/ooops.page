@@ -1,0 +1,11 @@
+<apex:page showHeader="false"
+           sidebar="false"
+           standardStylesheets="false"
+           language="en"
+           applyBodyTag="false"
+           applyHtmlTag="false"
+           docType="html">
+<html>
+    <p>Ooops, something went wrong...</p>
+</html>
+</apex:page>
