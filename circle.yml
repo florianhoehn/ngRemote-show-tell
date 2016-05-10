@@ -1,0 +1,6 @@
+test:
+    override:
+        - gulp sfdcBuild | tee output.txt
+general:
+    artifacts:
+        - "output.txt"

@@ -223,10 +223,11 @@
          .pipe(zip('pkg.zip'))
          .pipe(forceDeploy({
            username: 'fhoehn@ngRemote.com',
-           password: '<password>',
+           password: 'kara0oke',
            loginUrl: 'https://login.salesforce.com', 
            pollTimeout: 300*1000,
            pollInterval: 10*1000,
+           checkOnly: true,
            version: '34.0'
          }));
     });
