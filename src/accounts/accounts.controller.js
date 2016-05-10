@@ -4,9 +4,11 @@
     .module('accounts')
     .controller('accountListController',
                 ['accountService',
-                function(accountService) {
+                'massAccountService',
+                function(accountService, massAccountService) {
         var vm = this;
         vm.accounts = [];
+        vm.massAccounts = [];
 
         activate();
         
@@ -18,6 +20,15 @@
                 }
             }, function(error) {
                 console.log('accountListController:accountService:retrieveRecentItems:error:', error);
+            });
+
+            massAccountService.getAll()
+                              .then(function(result) {
+                if(result) {
+                    vm.massAccounts = result;
+                }
+            }, function(error) {
+                console.log('accountListController:massAccountService:getAll:error:', error);
             });
         }
     }]);

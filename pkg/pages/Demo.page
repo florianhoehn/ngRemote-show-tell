@@ -4,7 +4,8 @@
            language="en"
            applyBodyTag="false"
            applyHtmlTag="false"
-           docType="html">
+           docType="html"
+           controller="DemoController">
 <html>
     <header>
         <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.AppCss)}" />
@@ -24,7 +25,8 @@
                                 fields="Id, Name, LastModifiedDate"/>
         <apex:remoteObjectModel name="Contact"
                                 jsShorthand="contact"
-                                fields="Id, AccountId, Name"/>
+                                fields="Id, AccountId, Name"
+                                retrieve="{!$RemoteAction.DemoController.retrieve}"/>
     </apex:remoteObjects>
 
     <c:ngRemote remoteObjectNamespace="Demo" remoteObjects="account, contact" />

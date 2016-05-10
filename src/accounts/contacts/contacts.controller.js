@@ -12,9 +12,11 @@
         activate();
         
         function activate() {
+            // still going through ngRemote -> only gets the result array
             contactService.retrieveByParentId('AccountId', $stateParams.accountId, 5)
                           .then(function(result) {
                 if(result) {
+                    console.log('You got some extra?', result); // NO!
                     vm.contacts = result;
                 }
             }, function(error) {

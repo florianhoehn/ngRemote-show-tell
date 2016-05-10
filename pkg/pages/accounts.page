@@ -13,6 +13,13 @@
         </li>
     </ul>
 
+    <p>MassAccounts:</p>
+    <ul>
+        <li ng-repeat="account in vm.massAccounts">
+            <a ui-sref="root.accounts.contacts({accountId: account.Id})">{{account.Name}}</a>
+        </li>
+    </ul>
+
     <div ui-view="contacts"></div>
 </html>
 </apex:page>
