@@ -6,6 +6,16 @@
            applyHtmlTag="false"
            docType="html">
 <html>
-    footer
+    <footer>
+        <div class="row well">
+          <div class="col-lg-12">
+            <ul class="list-unstyled">
+              	<li><a href="https://github.com/florianhoehn/ngRemote-show-tell">GitHub</a></li>
+            </ul>
+            <p>Made by Florian Hoehn</p>
+            <p>Based on <a href="https://github.com/thomaspark/bootswatch/" rel="nofollow">Bootswatch</a>. Showing <a href="https://github.com/florianhoehn/ngRemote" rel="nofollow">ngRemote</a>.</p>
+          </div>
+        </div>
+    </footer>
 </html>
 </apex:page>

@@ -43,7 +43,7 @@ global with sharing class DemoController {
                                                                              fields,
                                                                              criteria);
 
-        Map<String, Object> result = new Map<String, Object>({'extra'=> 'keks'});
+        Map<String, Object> result = new Map<String, Object> {'extra'=> 'keks'};
         result.putAll(officialResult);
         return result;
 
